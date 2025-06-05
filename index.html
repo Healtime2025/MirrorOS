@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +11,15 @@
     body {
       margin: 0;
       background-color: #0f111a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       color: white;
       font-family: 'Segoe UI', sans-serif;
     }
     .splash {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
     .splash img {
       width: 160px;
@@ -30,6 +29,39 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .app-tile {
+      background: #1c1f2e;
+      border: 1px solid #2a2d3f;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .app-tile:hover {
+      background: #292c3e;
+      transform: translateY(-3px);
+    }
+    .app-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    .status-badge {
+      font-size: 0.75rem;
+      margin-top: 6px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background-color: #00c853;
+      color: #fff;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
@@ -37,5 +69,96 @@
     <img src="mirroros-logo.png" alt="Mirror OS Logo">
     <h1>Loading Mirror OS...</h1>
   </div>
+  <div class="app-grid">
+    <div class="app-tile" onclick="location.href='https://www.mirrorintel.tech'">
+      <img src="/icons/mirrorintel.png" alt="Mirror Intel" class="app-icon">
+      <div>Mirror Intel</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://www.gracevoice.org'">
+      <img src="/icons/gracevoice.png" alt="GraceVoice" class="app-icon">
+      <div>GraceVoice</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.healtime.com'">
+      <img src="/icons/healtime.png" alt="HealTime" class="app-icon">
+      <div>HealTime</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.rekorda.com'">
+      <img src="/icons/rekorda-ai.png" alt="Rekorda AI Count" class="app-icon">
+      <div>Rekorda AI Count</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.glowtime.com'">
+      <img src="/icons/glowtime.png" alt="GlowTime" class="app-icon">
+      <div>GlowTime</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.coreflow.com'">
+      <img src="/icons/coreflow.png" alt="CoreFlow" class="app-icon">
+      <div>CoreFlow</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.ballotwise.com'">
+      <img src="/icons/ballotwise.png" alt="Ballotwise" class="app-icon">
+      <div>Ballotwise</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.coolafrican.com'">
+      <img src="/icons/coolafrican.png" alt="CoolAfrican" class="app-icon">
+      <div>CoolAfrican</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.educycle.com'">
+      <img src="/icons/educycle.png" alt="EduCycle" class="app-icon">
+      <div>EduCycle</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.hearsafe.com'">
+      <img src="/icons/hearsafe.png" alt="HearSafe" class="app-icon">
+      <div>HearSafe</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.lancast.com'">
+      <img src="/icons/lancast.png" alt="Lancast" class="app-icon">
+      <div>Lancast</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.metastorex.com'">
+      <img src="/icons/metastorex.png" alt="MetaStoreX" class="app-icon">
+      <div>MetaStoreX</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://www.mirrormessenger.com'">
+      <img src="/icons/mirrormessenger.png" alt="Mirror Messenger" class="app-icon">
+      <div>Mirror Messenger</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.pulsenode.com'">
+      <img src="/icons/pulsenode.png" alt="Pulse Node" class="app-icon">
+      <div>Pulse Node</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.rekorda-parking.com'">
+      <img src="/icons/rekorda-parking.png" alt="Rekorda Smart Parking" class="app-icon">
+      <div>Rekorda Smart Parking</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.rekorda-stock.com'">
+      <img src="/icons/rekorda-stock.png" alt="Rekorda Stock Count" class="app-icon">
+      <div>Rekorda Stock Count</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.remindme.com'">
+      <img src="/icons/remindme.png" alt="RemindMe" class="app-icon">
+      <div>RemindMe</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.shopvibe.com'">
+      <img src="/icons/shopvibe.png" alt="ShopVibe" class="app-icon">
+      <div>ShopVibe</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.smartuniform.com'">
+      <img src="/icons/smartuniform.png" alt="Smart Uniform" class="app-icon">
+      <div>Smart Uniform</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.edgekombucha.com'">
+      <img src="/icons/edgekombucha.png" alt="The Edge Kombucha" class="app-icon">
+      <div>The Edge Kombucha</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://visionflowlite.tech'">
+      <img src="/icons/visionflow.png" alt="VisionFlow" class="app-icon">
+      <div>VisionFlow</div>
+    </div>
+    <div class="app-tile" onclick="location.href='https://dummy.flowvision.com'">
+      <img src="/icons/flowvision.png" alt="FlowVision" class="app-icon">
+      <div>FlowVision</div>
+    </div>
+  </div>
 </body>
 </html>
+
