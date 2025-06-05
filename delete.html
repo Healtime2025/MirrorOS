@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mirror OS – App Launcher</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f111a;
+      color: white;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .tile {
+      background: #1a1d27;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+      color: white;
+      text-decoration: none;
+    }
+    .tile:hover {
+      transform: scale(1.05);
+    }
+    .tile img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mirror OS</h1>
+  <div class="tile-grid" id="tileGrid"></div>
+
+  <script>
+    const SHEET_API = "https://script.google.com/macros/s/AKfycbwkrwXfQHfWcc3qZNq7I81yAIX3fWStGRaVpYM9gTAAJe0KJMBVV7tEdemJWhM1OcXsFQ/exec";
+
+    async function fetchApps() {
+      try {
+        const res = await fetch(SHEET_API);
+        const data = await res.json();
+
+        const grid = document.getElementById("tileGrid");
+        grid.innerHTML = "";
+
+        data.forEach(app => {
+          if (app.Status === "Enabled") {
+            const tile = document.createElement("a");
+            tile.className = "tile";
+            tile.href = app.url;
+            tile.target = "_blank";
+
+            tile.innerHTML = `
+              <img src="${app.icon}" alt="${app.name} Icon" />
+              <span>${app.name}</span>
+            `;
+            grid.appendChild(tile);
+          }
+        });
+      } catch (err) {
+        console.error("Failed to load apps:", err);
+      }
+    }
+
+    fetchApps();
+  </script>
+</body>
+</html>
