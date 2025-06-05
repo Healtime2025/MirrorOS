@@ -114,9 +114,51 @@
 </head>
 <body>
   <div class="splash">
-    <img src="mirroros-logo.png" alt="Mirror OS Logo">
-    <h1>Loading Mirror OS...</h1>
+    <img src="mirroros-logo.png" alt="Mirror OS Logo" style="animation: spin 3s linear infinite; width: 120px;">
+    <h1 style="margin-top: 10px; font-size: 1.2rem; color: #ccc;">Loading Mirror OS...</h1>
   </div>
+
+  <style>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 1200px;
+    }
+    .app-tile {
+      background: #1c1f2e;
+      border: 1px solid #2a2d3f;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .app-tile:hover {
+      background: #292c3e;
+      transform: translateY(-4px);
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+    }
+    .app-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 10px;
+    }
+    .app-tile div {
+      font-size: 0.95rem;
+    }
+    @media screen and (max-width: 480px) {
+      .app-icon { width: 40px; height: 40px; }
+      .app-tile { padding: 16px; }
+      .app-tile div { font-size: 0.85rem; }
+    }
+  </style>
 
   <div class="app-grid">
 
@@ -215,5 +257,5 @@
       <div>VisionFlow</div>
     </div>
 
+  </div>
 </body>
-</html>
