@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mirror OS – Mirror Calendar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0d1a" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #0d0d1a;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    img.logo {
+      width: 100px;
+      animation: spin 3s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #ddd;
+    }
+
+    button {
+      background-color: #1e2a78;
+      color: white;
+      padding: 12px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button:hover {
+      background-color: #2b3fa1;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #1e2a78;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      padding: 8px 14px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      color: #888;
+      font-size: 12px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body onload="launchCalendar()">
+
+  <button class="back-button" onclick="window.location.href='mirroroffice.html'">← Back</button>
+
+  <img src="/icons/mirrorcalendar.png" alt="Mirror Calendar" class="logo" />
+  <h1>Launching Mirror Calendar...</h1>
+
+  <button onclick="openCalendar()">📅 Open Calendar</button>
+
+  <footer>Mirror Calendar – Synced with Google. Styled by Mirror OS.</footer>
+
+  <script>
+    function openCalendar() {
+      window.open('https://calendar.google.com/calendar/u/0/r', '_blank');
+    }
+
+    function launchCalendar() {
+      setTimeout(openCalendar, 2000);
+    }
+  </script>
+
+</body>
+</html>
