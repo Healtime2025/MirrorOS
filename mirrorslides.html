@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Mirror Slides – Mirror OS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Mirror Slides – Sovereign Suite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.ico" />
+  <meta name="theme-color" content="#0d0d1a" />
   <style>
     body {
-      background: #0d0d1a;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 80px 20px;
       margin: 0;
-    }
-    a.back {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: #1e2a78;
-      padding: 8px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      font-size: 14px;
+      background: #0d0d1a;
       font-family: 'Segoe UI', sans-serif;
-      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+      color: white;
+      text-align: center;
     }
     .loader {
       animation: spin 3s linear infinite;
       width: 100px;
-      max-width: 30vw;
+      margin: 40px auto 10px;
     }
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
+    }
+    h1 {
+      font-size: 24px;
+      margin-top: 10px;
+      color: #ccc;
     }
     button {
       background: #1e2a78;
@@ -49,19 +41,24 @@
     button:hover {
       background: #2b3fa1;
     }
-    h1 {
-      font-size: 1.8rem;
-    }
-    @media (max-width: 480px) {
-      h1 { font-size: 1.3rem; }
-      button { font-size: 14px; padding: 12px 24px; }
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 6px 14px;
+      font-size: 14px;
+      background: #1e2a78;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <a href="/index.html" class="back">⬅ Back</a>
-  <img src="mirroros-logo.png" class="loader" alt="Loading..." />
+  <a href="mirroroffice.html" class="back-btn">← Back</a>
+  <img src="mirroros-logo.png" class="loader" alt="Loading...">
   <h1>Launch Mirror Slides</h1>
-  <button onclick="window.open('https://slides.google.com/presentation/u/0/', '_blank')">📽️ Launch Now</button>
+  <button onclick="window.open('https://slides.google.com/presentation/u/0/', '_blank')">🚀 Launch Now</button>
 </body>
 </html>
+
