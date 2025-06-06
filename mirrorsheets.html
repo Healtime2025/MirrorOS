@@ -1,28 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mirror Sheets – Launch</title>
+  <title>Mirror Sheets – Mirror OS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" />
   <style>
     body {
       background: #0d0d1a;
       color: white;
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      padding-top: 100px;
+      padding: 80px 20px;
+      margin: 0;
     }
-
+    a.back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #1e2a78;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      font-family: 'Segoe UI', sans-serif;
+      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+    }
     .loader {
       animation: spin 3s linear infinite;
       width: 100px;
+      max-width: 30vw;
     }
-
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
     button {
       background: #1e2a78;
       border: none;
@@ -33,15 +47,22 @@
       margin-top: 30px;
       cursor: pointer;
     }
-
     button:hover {
       background: #2b3fa1;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.3rem; }
+      button { font-size: 14px; padding: 12px 24px; }
     }
   </style>
 </head>
 <body>
-  <img src="mirroros-logo.png" class="loader" alt="Loading...">
+  <a href="/index.html" class="back">⬅ Back</a>
+  <img src="mirroros-logo.png" class="loader" alt="Loading..." />
   <h1>Launch Mirror Sheets</h1>
-  <button onclick="window.open('https://sheets.google.com/spreadsheets/u/0/', '_blank')">🚀 Launch Now</button>
+  <button onclick="window.open('https://sheets.google.com/spreadsheets/u/0/', '_blank')">📊 Launch Now</button>
 </body>
 </html>
