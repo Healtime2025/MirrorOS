@@ -13,15 +13,21 @@
       display: flex;
       flex-direction: column;
       height: 100vh;
+      align-items: center;
+      justify-content: center;
     }
 
     header {
       background: #1e2a78;
       color: white;
+      width: 100%;
       padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     header h1 {
@@ -29,66 +35,42 @@
       margin: 0;
     }
 
-    .status-banner {
-      background: #ffcc00;
-      color: #000;
-      text-align: center;
-      padding: 6px;
-      font-size: 14px;
-      display: none;
-    }
-
-    iframe {
-      flex: 1;
-      width: 100%;
+    #launch-btn {
+      padding: 15px 30px;
+      font-size: 16px;
+      background: #1e2a78;
+      color: white;
       border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 100px;
     }
 
     footer {
       background: #eaeaea;
+      width: 100%;
       text-align: center;
       font-size: 12px;
       padding: 6px;
       color: #666;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Mirror Word</h1>
-    <span id="connection-status">🔄 Syncing...</span>
+    <span>✅ Online – Ready</span>
   </header>
 
-  <div class="status-banner" id="offlineBanner">⚠️ You are offline. Changes will be saved locally and synced once you're online.</div>
-
-  <iframe id="mirrorIframe" src="https://docs.google.com/document/u/0/" allowfullscreen></iframe>
+  <button id="launch-btn" onclick="window.open('https://docs.google.com/document/u/0/', '_blank')">
+    🚀 Launch Mirror Word (Google Docs)
+  </button>
 
   <footer>
     Powered by Google Docs. Integrated by Mirror OS – Tech Sovereignty Suite.
   </footer>
-
-  <script>
-    // Offline detection
-    function updateStatus() {
-      const banner = document.getElementById('offlineBanner');
-      const status = document.getElementById('connection-status');
-      if (navigator.onLine) {
-        banner.style.display = 'none';
-        status.textContent = '✅ Online – Changes syncing';
-      } else {
-        banner.style.display = 'block';
-        status.textContent = '⚠️ Offline – Changes saving locally';
-      }
-    }
-
-    window.addEventListener('online', updateStatus);
-    window.addEventListener('offline', updateStatus);
-    updateStatus();
-
-    // Fallback redirect (iframe error detection)
-    document.getElementById('mirrorIframe').addEventListener('error', function () {
-      window.location.href = 'https://docs.google.com/document/u/0/';
-    });
-  </script>
 </body>
 </html>
