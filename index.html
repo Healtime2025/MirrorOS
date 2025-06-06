@@ -47,6 +47,15 @@
       100% { transform: rotate(360deg); }
     }
 
+    .info-bar {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 14px;
+      color: #aaa;
+      margin: 10px 0 20px;
+    }
+
     .app-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -62,13 +71,14 @@
       border-radius: 16px;
       padding: 20px;
       text-align: center;
-      transition: transform 0.3s ease, background 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
 
     .app-tile:hover {
       background: var(--tile-hover);
       transform: translateY(-4px);
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
     }
 
     .app-icon {
@@ -82,14 +92,12 @@
       margin-top: 8px;
     }
 
-    .status-badge {
-      font-size: 0.75rem;
-      margin-top: 6px;
-      padding: 4px 8px;
-      border-radius: 6px;
-      background-color: var(--accent);
-      color: #fff;
-      display: inline-block;
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 30px;
+      padding: 10px;
     }
 
     @media screen and (max-width: 480px) {
@@ -112,55 +120,21 @@
     }
   </style>
 </head>
-<body>
+<body onload="playStartupSound(); updateClock();">
+  <audio id="startupSound" src="/mirroros-startup.mp3"></audio>
+
   <div class="splash">
-    <img src="mirroros-logo.png" alt="Mirror OS Logo" style="animation: spin 3s linear infinite; width: 120px;">
-    <h1 style="margin-top: 10px; font-size: 1.2rem; color: #ccc;">Loading Mirror OS...</h1>
+    <img src="mirroros-logo.png" alt="Mirror OS Logo">
+    <h1 style="margin-top: 10px; font-size: 1.2rem; color: #ccc;">Welcome to Mirror OS</h1>
   </div>
 
-  <style>
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .app-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      width: 90%;
-      max-width: 1200px;
-    }
-    .app-tile {
-      background: #1c1f2e;
-      border: 1px solid #2a2d3f;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .app-tile:hover {
-      background: #292c3e;
-      transform: translateY(-4px);
-      box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
-    }
-    .app-icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 10px;
-    }
-    .app-tile div {
-      font-size: 0.95rem;
-    }
-    @media screen and (max-width: 480px) {
-      .app-icon { width: 40px; height: 40px; }
-      .app-tile { padding: 16px; }
-      .app-tile div { font-size: 0.85rem; }
-    }
-  </style>
+  <div class="info-bar">
+    <div id="clock">🕒 --:--</div>
+    <div><a href="https://weather.com/weather/today" target="_blank" style="color:#aaa; text-decoration:none;">☁️ Weather</a></div>
+  </div>
 
   <div class="app-grid">
+    <!-- INSERTED YOUR FULL TILE LIST -->
 
     <div class="app-tile" onclick="location.href='https://mirrorintel.tech'">
       <img src="/icons/mirrormessenger.png" alt="Mirror Messenger" class="app-icon">
@@ -177,85 +151,44 @@
       <div>HealTime</div>
     </div>
 
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/glowtime.png" alt="GlowTime" class="app-icon">
-      <div>GlowTime</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/ballotwise.png" alt="Ballotwise" class="app-icon">
-      <div>Ballotwise</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/coolafrican.png" alt="CoolAfrican" class="app-icon">
-      <div>CoolAfrican</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/educycle.png" alt="EduCycle" class="app-icon">
-      <div>EduCycle</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/HeartSafe Legacy.png" alt="HeartSafe Legacy" class="app-icon">
-      <div>HeartSafe Legacy</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/lancast.png" alt="Lancast" class="app-icon">
-      <div>Lancast</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/metastorex.png" alt="MetaStoreX" class="app-icon">
-      <div>MetaStoreX</div>
-    </div>
-
+    <div class="app-tile"><img src="/icons/glowtime.png" class="app-icon"><div>GlowTime</div></div>
+    <div class="app-tile"><img src="/icons/ballotwise.png" class="app-icon"><div>Ballotwise</div></div>
+    <div class="app-tile"><img src="/icons/coolafrican.png" class="app-icon"><div>CoolAfrican</div></div>
+    <div class="app-tile"><img src="/icons/educycle.png" class="app-icon"><div>EduCycle</div></div>
+    <div class="app-tile"><img src="/icons/HeartSafe Legacy.png" class="app-icon"><div>HeartSafe Legacy</div></div>
+    <div class="app-tile"><img src="/icons/lancast.png" class="app-icon"><div>Lancast</div></div>
+    <div class="app-tile"><img src="/icons/metastorex.png" class="app-icon"><div>MetaStoreX</div></div>
     <div class="app-tile" onclick="location.href='https://mirrormessenger.com'">
-      <img src="/icons/mirrormessenger.png" alt="Mirror Messenger" class="app-icon">
-      <div>Mirror Messenger</div>
+      <img src="/icons/mirrormessenger.png" class="app-icon"><div>Mirror Messenger</div>
     </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/pulsenode.png" alt="Pulse Node" class="app-icon">
-      <div>Pulse Node</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/rekorda-smartparking.png" alt="Rekorda Smart Parking" class="app-icon">
-      <div>Rekorda Smart Parking</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/rekorda-ai-count.png" alt="Rekorda-ai-Count" class="app-icon">
-      <div>Rekorda-ai-Count</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/remindme.png" alt="RemindMe" class="app-icon">
-      <div>RemindMe</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/shopvibe.png" alt="ShopVibe" class="app-icon">
-      <div>ShopVibe</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/smartuniform.png" alt="Smart Uniform" class="app-icon">
-      <div>Smart Uniform</div>
-    </div>
-
-    <div class="app-tile" onclick="location.href='#'">
-      <img src="/icons/edgekombucha.png" alt="The Edge Kombucha" class="app-icon">
-      <div>The Edge Kombucha</div>
-    </div>
-
+    <div class="app-tile"><img src="/icons/pulsenode.png" class="app-icon"><div>Pulse Node</div></div>
+    <div class="app-tile"><img src="/icons/rekorda-smartparking.png" class="app-icon"><div>Rekorda Smart Parking</div></div>
+    <div class="app-tile"><img src="/icons/rekorda-ai-count.png" class="app-icon"><div>Rekorda-ai-Count</div></div>
+    <div class="app-tile"><img src="/icons/remindme.png" class="app-icon"><div>RemindMe</div></div>
+    <div class="app-tile"><img src="/icons/shopvibe.png" class="app-icon"><div>ShopVibe</div></div>
+    <div class="app-tile"><img src="/icons/smartuniform.png" class="app-icon"><div>Smart Uniform</div></div>
+    <div class="app-tile"><img src="/icons/edgekombucha.png" class="app-icon"><div>The Edge Kombucha</div></div>
     <div class="app-tile" onclick="location.href='https://visionflowlite.tech'">
-      <img src="/icons/visionflow.png" alt="VisionFlow" class="app-icon">
-      <div>VisionFlow</div>
+      <img src="/icons/visionflow.png" class="app-icon"><div>VisionFlow</div>
     </div>
-
   </div>
+
+  <footer>
+    Mirror OS – Command Center for All Your Apps
+  </footer>
+
+  <script>
+    function playStartupSound() {
+      const audio = document.getElementById('startupSound');
+      if (audio) audio.play().catch(e => console.log("Sound blocked by browser"));
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('clock').textContent = `🕒 ${time}`;
+      setTimeout(updateClock, 1000);
+    }
+  </script>
 </body>
+</html>
