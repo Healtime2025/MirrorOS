@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Mirror Office – Sovereign Suite</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="theme-color" content="#0d0d1a" />
+  <meta charset="UTF-8">
+  <title>Mirror Word – Launch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin: 0;
       background: #0d0d1a;
-      font-family: 'Segoe UI', sans-serif;
       color: white;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
+      padding-top: 100px;
     }
 
     .loader {
       animation: spin 3s linear infinite;
       width: 100px;
-      margin: 40px auto 10px;
     }
 
     @keyframes spin {
@@ -26,71 +23,25 @@
       100% { transform: rotate(360deg); }
     }
 
-    h1 {
-      font-size: 24px;
-      margin-top: 10px;
-      color: #ccc;
-    }
-
-    .tile-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 40px;
-      gap: 20px;
-    }
-
-    .tile {
+    button {
       background: #1e2a78;
-      border-radius: 16px;
-      width: 160px;
-      height: 100px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
+      border: none;
+      padding: 15px 30px;
       color: white;
-      box-shadow: 0 0 10px #00000033;
-      transition: transform 0.2s;
+      font-size: 16px;
+      border-radius: 10px;
+      margin-top: 30px;
+      cursor: pointer;
     }
 
-    .tile:hover {
-      transform: scale(1.05);
+    button:hover {
       background: #2b3fa1;
-    }
-
-    .tile span {
-      margin-top: 8px;
-      font-size: 14px;
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      font-size: 12px;
-      color: #888;
-      background: #0d0d1a;
-      padding: 10px;
     }
   </style>
 </head>
 <body>
-
-  <img src="mirroros-logo.png" alt="Loading Mirror OS..." class="loader" />
-  <h1>Loading Mirror OS...</h1>
-
-  <div class="tile-grid">
-    <a href="mirrorword.html" class="tile"><span>📝 Mirror Word</span></a>
-    <a href="mirrorsheets.html" class="tile"><span>📊 Mirror Sheets</span></a>
-    <a href="mirrorslides.html" class="tile"><span>📽️ Mirror Slides</span></a>
-    <a href="mirrorvault.html" class="tile"><span>📁 Mirror Vault</span></a>
-  </div>
-
-  <footer>
-    Mirror Office – Powered by Google. Branded by Mirror OS.
-  </footer>
-
+  <img src="mirroros-logo.png" class="loader" alt="Loading...">
+  <h1>Launch Mirror Word</h1>
+  <button onclick="window.open('https://docs.google.com/document/u/0/', '_blank')">📝 Launch Now</button>
 </body>
 </html>
