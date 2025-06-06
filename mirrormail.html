@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MirrorMail – Secure Inbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="theme-color" content="#0d0d1a" />
+  <style>
+    body {
+      background: #0d0d1a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding-top: 100px;
+    }
+
+    .loader {
+      animation: spin 3s linear infinite;
+      width: 100px;
+      margin-bottom: 30px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #ccc;
+    }
+
+    button {
+      background: #1e2a78;
+      border: none;
+      padding: 15px 30px;
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #2b3fa1;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 12px;
+      color: #888;
+      background: #0d0d1a;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="mirroros-logo.png" alt="Loading Mirror OS..." class="loader" />
+  <h1>Access Your MirrorMail Inbox</h1>
+  <button onclick="window.open('https://mail.google.com', '_blank')">📨 Open Gmail</button>
+
+  <footer>
+    MirrorMail – Secured by Google. Designed by Mirror OS.
+  </footer>
+
+</body>
+</html>
